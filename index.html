@@ -11,7 +11,7 @@
          sizes="32x32"
          href="./assets/images/favicon-32x32.png"
       />
-      <link rel="stylesheet" href="./style.css" />
+      <!-- <link rel="stylesheet" href="./style.css" /> -->
       <link
          rel="stylesheet"
          href="https://fonts.google.com/noto/specimen/Noto+Sans"
@@ -31,19 +31,30 @@
       </style>
    </head>
    <body>
-      <div class="container second-part">
-         <img src="./assets/images/logo.svg" alt="logo" />
+      <div class="first-header second-part">
+         <img src="./assets/images/logo-light.svg" alt="light logo" />
+         <img src="./assets/images/logo-night.svg" alt="night logo" />
 
-         <div class="moon-container">
+         <div class="moon-container theme-switch" tabindex="0">
             <img src="./assets/images/icon-moon.svg" alt="moon icon" />
+            <img src="./assets/images/icon-sun.svg" alt="sun icon" />
          </div>
       </div>
       <div class="second-header">
          <h1>Extensions List</h1>
          <div class="second-header-buttons">
-            <button class="second-header-button">All</button>
-            <button class="second-header-button">Active</button>
-            <button class="second-header-button">Inactive</button>
+            <button
+               class="second-header-button active"
+               onclick="activateButton(this)"
+            >
+               All
+            </button>
+            <button class="second-header-button" onclick="activateButton(this)">
+               Active
+            </button>
+            <button class="second-header-button" onclick="activateButton(this)">
+               Inactive
+            </button>
          </div>
       </div>
 
@@ -53,9 +64,13 @@
 
       <div class="attribution">
          Challenge by
-         <a href="https://www.frontendmentor.io?ref=challenge"
+         <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
             >Frontend Mentor</a
-         >. Coded by <a href="#">Your Name Here</a>.
+         >. Coded by
+         <a href="https://funny-rabanadas-625f53.netlify.app/" target="_blank"
+            >Jonier Pachon</a
+         >.
       </div>
+      <link rel="stylesheet" href="./style.css" />
    </body>
 </html>
