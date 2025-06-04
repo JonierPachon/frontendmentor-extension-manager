@@ -11,24 +11,12 @@
          sizes="32x32"
          href="./assets/images/favicon-32x32.png"
       />
-      <!-- <link rel="stylesheet" href="./style.css" /> -->
+      <link rel="stylesheet" href="./style.css" />
       <link
          rel="stylesheet"
          href="https://fonts.google.com/noto/specimen/Noto+Sans"
       />
-      <script src="./script.js" defer></script>
       <title>Frontend Mentor | Browser extensions manager UI</title>
-
-      <!-- Feel free to remove these styles or customize in your own stylesheet 👍 -->
-      <style>
-         .attribution {
-            font-size: 11px;
-            text-align: center;
-         }
-         .attribution a {
-            color: hsl(228, 45%, 44%);
-         }
-      </style>
    </head>
    <body>
       <div class="first-header second-part">
@@ -44,15 +32,24 @@
          <h1>Extensions List</h1>
          <div class="second-header-buttons">
             <button
+               value="all"
                class="second-header-button active"
                onclick="activateButton(this)"
             >
                All
             </button>
-            <button class="second-header-button" onclick="activateButton(this)">
+            <button
+               value="active"
+               class="second-header-button"
+               onclick="activateButton(this)"
+            >
                Active
             </button>
-            <button class="second-header-button" onclick="activateButton(this)">
+            <button
+               value="inactive"
+               class="second-header-button"
+               onclick="activateButton(this)"
+            >
                Inactive
             </button>
          </div>
@@ -71,6 +68,7 @@
             >Jonier Pachon</a
          >.
       </div>
-      <link rel="stylesheet" href="./style.css" />
+      <!-- <link rel="stylesheet" href="./style.css" /> -->
+      <script src="./script.js"></script>
    </body>
 </html>
