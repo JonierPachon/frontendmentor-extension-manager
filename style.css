@@ -151,8 +151,8 @@ p {
 
 .tooltip-text {
    visibility: hidden;
-   font-size: 12px;
-   width: 80px;
+   font-size: 11px;
+   width: 100px;
    background-color: #555555b0;
    color: #fff;
    text-align: center;
