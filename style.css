@@ -46,6 +46,7 @@
    box-sizing: border-box;
    font-family: "Noto Sans", sans-serif;
    color: var(--text-color);
+   scroll-behavior: smooth;
 }
 
 body {
@@ -98,13 +99,14 @@ p {
 
 .second-header {
    padding-top: 1.5rem;
-   padding-bottom: 0.5;
+   padding-bottom: 0.5rem;
 }
 
 .second-header-buttons {
    display: flex;
    gap: 1rem;
 }
+
 .second-header-button {
    border-radius: 18px;
 }
@@ -118,11 +120,46 @@ p {
    border-color: var(--btns-and-slider-hover);
    color: var(--btn-hover-text);
 }
-/* .second-header-button:hover {
-   border-color: var(--btns-and-slider-hover);
-   color: var(--btn-hover-text);
-} */
+
 .second-header-button:focus {
+   outline: 2px solid var(--btns-and-slider-hover);
+   border: 1px solid white;
+}
+
+.tooltip-container {
+   position: relative;
+   display: inline-block;
+}
+
+.tooltip-text {
+   visibility: hidden;
+   font-size: 12px;
+   width: 80px;
+   background-color: #555555b0;
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 5px;
+   position: absolute;
+   z-index: 1;
+   bottom: -95%;
+   left: 60%;
+   transform: translateY(-50%);
+   opacity: 0;
+   transition: opacity 0.3s;
+   pointer-events: none;
+}
+
+.tooltip-container:hover .tooltip-text {
+   visibility: visible;
+   opacity: 1;
+}
+
+.btn-reset {
+   font-weight: bolder;
+}
+
+.btn-remove:focus {
    outline: 2px solid var(--btns-and-slider-hover);
    border: 1px solid white;
 }
@@ -220,6 +257,10 @@ input[type="checkbox"]:focus + .slider {
    border: 1px solid white;
 }
 
+.second-header-button:focus {
+   color: var(--btn-hover-text);
+}
+
 input:checked + .slider:hover,
 .second-header-button:hover,
 .slider:focus,
@@ -251,19 +292,16 @@ input:checked + .slider::before {
    margin-top: 2rem;
    font-size: 17px;
    text-align: center;
-   transition: all 3s ease;
-   transition: smooth;
 }
 .attribution a {
    text-decoration: none;
    color: var(--slider-active);
    transition: all 3s ease;
-   transition: smooth;
 }
 a:hover {
    text-decoration: underline;
    text-underline-offset: 7px;
    transform: translateY(100px);
-   text-decoration-color: var(--btns-and-slider-hover);
+   text-decoration-color: var(--slider-active);
    color: var(--btns-and-slider-hover);
 }

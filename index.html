@@ -14,7 +14,7 @@
       <link rel="stylesheet" href="./style.css" />
       <link
          rel="stylesheet"
-         href="https://fonts.google.com/noto/specimen/Noto+Sans"
+         href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;700&display=swap"
       />
       <title>Frontend Mentor | Browser extensions manager UI</title>
    </head>
@@ -52,6 +52,15 @@
             >
                Inactive
             </button>
+            <div class="tooltip-container">
+               <button
+                  class="second-header-button btn-reset"
+                  onclick="resetData()"
+               >
+                  ⟳
+               </button>
+               <span class="tooltip-text">Reset Data</span>
+            </div>
          </div>
       </div>
 
