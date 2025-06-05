@@ -87,7 +87,7 @@ let valueButton = "all"; // Variable to hold the value of the button
 
 // display the data
 function displayJsonData(filter) {
-   const storedData = localStorage.getItem("extensionData");
+   const storedData = localStorage.getItem("cardData");
 
    const data = storedData ? JSON.parse(storedData) : jsonData;
 
@@ -95,47 +95,65 @@ function displayJsonData(filter) {
    const container = document.querySelector("#extensions-container");
    container.innerHTML = ""; // Clear previous items
 
-   data.forEach((extension) => {
-      const card = document.createElement("div");
-      card.className = "card";
+   data.forEach((item) => {
+      const cardElement = document.createElement("div");
+      cardElement.className = "card";
 
       if (filter === "all") {
-         card.innerHTML = displayData(extension);
-      } else if (filter === "active" && extension.isActive) {
-         card.innerHTML = displayData(extension);
+         cardElement.innerHTML = getCard(item);
+      } else if (filter === "active" && item.isActive) {
+         cardElement.innerHTML = getCard(item);
       } else {
-         if (filter === "inactive" && !extension.isActive) {
-            card.innerHTML = displayData(extension);
+         if (filter === "inactive" && !item.isActive) {
+            cardElement.innerHTML = getCard(item);
          }
       }
 
-      if (!card.innerHTML) return;
-      container.appendChild(card);
+      if (!cardElement.innerHTML) return;
+      container.appendChild(cardElement);
 
-      function displayData(extension) {
+      function getCard(item) {
          return `
                <div class="first-part">
-                  <img src="${extension.logo}" alt="${
-            extension.name
+                  <img src="${item.logo}" alt="${
+            item.name
          } logo" class="logo" />
                   <div class="text">
-                     <h2>${extension.name}</h2>
-                     <p>${extension.description}</p>
+                     <h2>${item.name}</h2>
+                     <p>${item.description}</p>
                   </div>
                </div>
                <div class="second-part">
-                  <button class="btn-remove" onClick="removeExtension('${
-                     extension.name
-                  }')">Remove</button>
+                  <button class="btn-remove" data-name="${
+                     item.name
+                  }" aria-label="Remove ${item.name} card">Remove</button>
                   <label class="switch">
-                     <input type="checkbox" ${
-                        extension.isActive ? "checked" : ""
-                     } onClick="toggleCheckbox(this, '${extension.name}')"/>
+                     <input type="checkbox" aria-label="Toggle ${
+                        item.name
+                     } card status" ${
+            item.isActive ? "checked" : ""
+         } data-name="${item.name}"/>
                      <span class="slider round" tabindex="0"></span>
                   </label>
                </div>
                `;
       }
+   });
+
+   // Event listener after rendering all cards
+   document.querySelectorAll("input[type=checkbox]").forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+         const cardName = checkbox.getAttribute("data-name");
+         toggleCheckbox(checkbox, cardName);
+      });
+   });
+
+   // Event listener for remove buttons
+   document.querySelectorAll(".btn-remove").forEach((button) => {
+      button.addEventListener("click", () => {
+         const cardName = button.getAttribute("data-name");
+         removeCard(cardName);
+      });
    });
 }
 
@@ -159,13 +177,13 @@ function activateButton(button) {
 }
 
 // toggle checkbox
-function toggleCheckbox(checkbox, extensionName) {
+function toggleCheckbox(checkbox, cardName) {
    const isActive = checkbox.checked;
-   const card = items.find((item) => item.name === extensionName);
+   const card = items.find((item) => item.name === cardName);
 
    if (card) {
       card.isActive = isActive;
-      localStorage.setItem("extensionData", JSON.stringify(items));
+      localStorage.setItem("cardData", JSON.stringify(items));
    }
 
    if (valueButton !== "all") {
@@ -173,25 +191,25 @@ function toggleCheckbox(checkbox, extensionName) {
    }
 }
 
-// remove extension
-function removeExtension(extensionName) {
-   items = items.filter((item) => item.name !== extensionName);
-   localStorage.setItem("extensionData", JSON.stringify(items));
+// remove card
+function removeCard(cardName) {
+   items = items.filter((item) => item.name !== cardName);
+   localStorage.setItem("cardData", JSON.stringify(items));
    displayJsonData(valueButton);
 }
 
 // toggle dark mode and light mode
-let darkMode = localStorage.getItem("dARKmODE");
+let darkMode = localStorage.getItem("dark-mode");
 let themeSwitch = document.querySelector(".theme-switch");
 
 const enableDarkMode = () => {
    document.body.classList.add("dark-mode");
-   localStorage.setItem("dARKmODE", "active"); // Save dark mode state
+   localStorage.setItem("dark-mode", "active"); // Save dark mode state
 };
 
 const disableDarkMode = () => {
    document.body.classList.remove("dark-mode");
-   localStorage.setItem("dARKmODE", null);
+   localStorage.setItem("dark-mode", null);
 };
 
 if (darkMode === "active") {
@@ -199,13 +217,12 @@ if (darkMode === "active") {
 }
 
 themeSwitch.addEventListener("click", () => {
-   darkMode = localStorage.getItem("dARKmODE");
+   darkMode = localStorage.getItem("dark-mode");
    darkMode !== "active" ? enableDarkMode() : disableDarkMode();
 });
 
 // Reset data
 function resetData() {
+   localStorage.removeItem("cardData");
    location.reload();
-   localStorage.removeItem("extensionData");
-   displayJsonData("all");
 }
