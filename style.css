@@ -30,6 +30,10 @@
    --btns-and-slider-hover: hsl(3, 77%, 44%);
 }
 
+.link-break {
+   display: none;
+}
+
 .theme-switch img:last-child,
 .first-header img:nth-child(2) {
    display: none;
@@ -67,11 +71,6 @@ p {
    font-size: 16px;
    margin-top: 0.5rem;
    color: var(--text-paragraph);
-}
-
-.first-header img {
-   print-color-adjust: exact;
-   -webkit-print-color-adjust: rgb(255, 255, 255);
 }
 
 .moon-container {
@@ -185,7 +184,8 @@ p {
 
 .grid-container {
    display: grid;
-   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   justify-content: center;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 0.8fr));
    gap: 1.5rem;
 }
 
@@ -303,6 +303,7 @@ input:checked + .slider::before {
 
 .attribution {
    margin-top: 2rem;
+
    font-size: 17px;
    text-align: center;
 }
