@@ -7,15 +7,14 @@
    --remove-hover-focus: var(--slider-active);
    --remove-bg: var(--bg-container);
    --btn-hover-text: var(--bg-container);
-   --btns-and-slider-hover: hsl(
-      3,
-      71%,
-      56%
-   ); /*focus: icon, slider and the buttons*/
-   --btns-hover: hsla(0, 1%, 82%, 0.775);
+   /*focus: icon, slider and the buttons*/
+   --btns-and-slider-hover: hsl(3, 71%, 56%);
+   --btns-header-hover: hsla(0, 0%, 97%, 0.419);
+   --btns-header-hover-text: hsla(0, 0%, 0%, 0.518);
    --icon-mode: hsl(0, 0%, 93%);
    --icon-mode-hover: hsl(0, 0%, 78%);
 }
+
 /*  */
 .dark-mode {
    --bg-body: linear-gradient(180deg, #040918 0%, #091540 100%);
@@ -25,6 +24,10 @@
    --remove-bg: var(--bg-container);
    --icon-mode: hsl(225, 23%, 24%);
    --icon-mode-hover: hsl(226, 11%, 37%);
+   --btns-header-hover: hsl(226, 11%, 37%);
+   --btns-header-hover-text: var(--text-color);
+   --slider-active: hsl(3, 71%, 56%);
+   --btns-and-slider-hover: hsl(3, 77%, 44%);
 }
 
 .theme-switch img:last-child,
@@ -111,19 +114,35 @@ p {
    border-radius: 18px;
 }
 .second-header-button.active {
-   border-color: var(--btns-and-slider-hover);
+   border-color: var(--slider-active);
    color: var(--btn-hover-text);
+   background: var(--slider-active);
+}
+
+.second-header-button.active:focus {
+   outline: 2px solid var(--btns-and-slider-hover);
+   border-color: var(--bg-container);
+   background: var(--slider-active);
+}
+
+.second-header-button.active:hover {
    background: var(--btns-and-slider-hover);
+   border-color: var(--btns-and-slider-hover);
+   color: var(--bg-container);
+}
+
+.second-header-button.active:focus:hover {
+   border-color: var(--bg-container);
+}
+
+.dark-mode .second-header-button.active {
+   font-weight: bold;
+   color: var(--bg-container);
 }
 
 .second-header-button:hover {
-   border-color: var(--btns-and-slider-hover);
-   color: var(--btn-hover-text);
-}
-
-.second-header-button:focus {
-   outline: 2px solid var(--btns-and-slider-hover);
-   border: 1px solid white;
+   background: var(--btns-header-hover);
+   color: var(--btns-header-hover-text);
 }
 
 .tooltip-container {
@@ -257,15 +276,9 @@ input[type="checkbox"]:focus + .slider {
    border: 1px solid white;
 }
 
-.second-header-button:focus {
-   color: var(--btn-hover-text);
-}
-
 input:checked + .slider:hover,
-.second-header-button:hover,
 .slider:focus,
-.container:focus,
-.second-header-button:focus {
+.container:focus {
    background: var(--btns-and-slider-hover);
 }
 
