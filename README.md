@@ -1,4 +1,4 @@
-# Frontend Mentor - Interactive Extension Dashboard
+# Frontend Mentor - Browser Extension Manager UI
 <p align="center">
     <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/pc1.png" alt="My Image 1" width="750" style="margin: 0 10px;">
     <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/phone2.png" alt="My Image 2" width="243" style="margin: 0 200px;">
