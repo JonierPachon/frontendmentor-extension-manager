@@ -1,12 +1,12 @@
 # Frontend Mentor - Browser Extension Manager UI
 <p align="center">
-    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/pc1.png" alt="My Image 1" width="750" style="margin: 0 10px;">
-    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/phone2.png" alt="My Image 2" width="243" style="margin: 0 200px;">
+    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/README/pc2.png" alt="My Image 2" width="750" style="margin: 0 10px;">
+    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/README/phone.png" alt="My Image 2" width="243" style="margin: 0 200px;">
 </p>
 <p align="center">
-    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/pc2.png" alt="My Image 2" width="750" style="margin: 0 10px;">
-    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/phone.png" alt="My Image 1" width="243" style="margin: 0 200px;">
-
+    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/README/pc1.png" alt="My Image 1" width="750" style="margin: 0 10px;">
+    <img src="https://github.com/JonierPachon/frontendmentor-extension-manager/blob/main/README/phone2.png" alt="My Image 1" width="243" style="margin: 0 200px;">
+</p>
 This is my solution to the [Browser Extension Manager UI challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/browser-extension-manager-ui-yNZnOfsMAp). The goal was to build a responsive, interactive extension manager using HTML, CSS, and JavaScript that matches the provided design as closely as possible.
 
 ## 🔗 Links
